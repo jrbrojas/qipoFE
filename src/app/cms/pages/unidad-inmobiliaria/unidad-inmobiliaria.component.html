@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row pb-2">
+                    <div class="col-md-10">
+                        <div>
+                            <div class="customize-input">
+                                <input #text  type="text" class="form-control custom-shadow border-0 bg-white"
+                                     placeholder="Buscar" aria-label="Search">
+                                <i class="form-control-icon" ></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button (click)="buscar(text.value)" type="button" class="btn btn-secondary" >Buscar</button>
+                    </div>
+                </div>
+                <app-carga-doc [openDowload]="templeteLink" [tipoExcel]="nameExcel" (listExcel)="addData($event)" ></app-carga-doc>
+                
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <thead align="center">
+                            <tr>
+                                <th>#</th>
+                                <th>Codigo</th>
+                                <th>Tipo</th>
+                                <th>Grupo</th>
+                                <th>Unidad</th>
+                                <th>Area Techada(m2)</th>
+                                <th>Area Ocupada(m2)</th>
+                                <th>Alicouta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr align="center" *ngFor="let unidad of unidadInmobiliarias; index as i">
+                                <td>{{i + 1}}</td>
+                                <td>{{unidad.ui}}</td>
+                                <td>{{unidad.tipo}}</td>
+                                <td>{{unidad.grupo}}</td>
+                                <td>{{unidad.unidad}}</td>
+                                <td>{{unidad.areaTechada}}</td>
+                                <td>{{unidad.areaOcupada}}</td>
+                                <td>{{unidad.alicuota}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <app-loading *ngIf="cargando"></app-loading>
+                    
+                    <app-pagination (paginaEmitter)="goToPage($event)" [page]="page" [totalPages]="totalPages" [numShops]="numShops"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

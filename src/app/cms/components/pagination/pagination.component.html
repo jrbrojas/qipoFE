@@ -1,0 +1,29 @@
+<ul class="pagination float-right">
+    <li class="page-item disabled">
+        <a (click)="anterior()" class="page-link" tabindex="-1">Anterior</a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#">{{numShops - 1}}</a></li>
+    <li class="page-item">
+        <a class="page-link" href="#">{{numShops}} <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">{{numShops + 1}}</a></li>
+    <li class="page-item">
+        <a class="page-link" (click)="siguiente()">Seguiente</a>
+    </li>
+</ul>
+
+<!--div  class="pagination">
+
+    <div *ngIf="page > 1" class="page-link"><a (click)="anterior()">Anterior</a></div>
+
+    <div class="pagination__text">
+
+        <p>Página {{page}} de {{totalPages}}</p>
+
+        <p>{{numShops}} resultados</p>
+
+    </div>
+
+    <div *ngIf="page < totalPages" class="pagination__next"><a (click)="siguiente()" >Siguiente</a></div>
+
+</div-->
